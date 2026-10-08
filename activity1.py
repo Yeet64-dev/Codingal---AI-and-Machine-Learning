@@ -1,13 +1,12 @@
-def ways(n):
-    if n == 0:
+def hanoi(n):
+    if n == 1:
         return 1
-    if n < 0:
-        return 0
-    return ways(n-1) + ways(n-2)
-input("ways counts every distinct way to climb n stairs.  Press Enter ")
-print("  ways(3) = 3")
-print("  ways(4) = 5")
-n = int(input("Enter a number of stairs (try 5 or 6): "))
-guess = input("What is ways(" + str(n) + ")? ")
-input("ways(stairs) = ways(stairs-1) + ways(stairs-2)  both branches always combine.  Press Enter ")
-print("  ways(" + str(n) + ") = " + str(ways(n)) + "  your guess: " + guess)
+    else:
+        return 2 * hanoi(n - 1) + 1
+input("hanoi(n) counts the minimum moves to shift n disks from peg A to peg C.  Press Enter ")
+print("  hanoi(1) = 1")
+print("  hanoi(2) = 3")
+n = int(input("Enter number of disks (try 3 or 4): "))
+guess = input("What is hanoi(" + str(n) + ")? ")
+input("hanoi(n) = 2 * hanoi(n-1) + 1  each disk moves twice plus the last disk.  Press Enter ")
+print("  hanoi(" + str(n) + ") = " + str(hanoi(n)) + "  your guess: " + guess)
