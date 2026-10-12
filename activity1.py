@@ -1,13 +1,37 @@
-def ways(n):
-    if n == 0:
-        return 1
-    if n < 0:
-        return 0
-    return ways(n-1) + ways(n-2)
-input("ways counts every distinct way to climb n stairs.  Press Enter ")
-print("  ways(3) = 3")
-print("  ways(4) = 5")
-n = int(input("Enter a number of stairs (try 5 or 6): "))
-guess = input("What is ways(" + str(n) + ")? ")
-input("ways(stairs) = ways(stairs-1) + ways(stairs-2)  both branches always combine.  Press Enter ")
-print("  ways(" + str(n) + ") = " + str(ways(n)) + "  your guess: " + guess)
+import array as arr
+# 1) Create a function to calculate the mean of a list:
+#    a) Add all elements using a loop.
+#    b) Mean = total sum / number of elements.
+#    c) Return the mean as a float.
+
+def mean(lst):
+    total = 0
+    for num in lst:
+        total += num
+    return total / len(lst)
+
+# 2) Create a function to calculate the median of a list:
+#    a) Sort the list first.
+#    b) If the size is odd, return the middle element.
+#    c) If the size is even, return the average of the two middle elements.
+
+def median(lst):
+    sorted_lst = sorted(lst)
+    n = len(sorted_lst)
+    if n % 2 == 1:
+        return sorted_lst[n // 2]
+    else:
+        mid1 = sorted_lst[n // 2 - 1]
+        mid2 = sorted_lst[n // 2]
+        return (mid1 + mid2) / 2
+
+# 3) Create a sample list and find its size using `len()`.
+
+sample_list = [1, 2, 3, 4, 5]
+size = len(sample_list)
+
+# 4) Call both functions and print the mean and median.
+print("Mean:", mean(sample_list))
+print("Median:", median(sample_list))
+
+

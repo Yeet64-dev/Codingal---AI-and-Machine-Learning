@@ -1,16 +1,24 @@
-def count_paren(n):
-    if n == 0:
-        return 1
-    else:
-        total = 0
-        for i in range(n):
-            total += count_paren(i) * count_paren(n - 1 - i)
-        return total
+import array as arr
+# 1) Create a function to calculate the maximum of a list:
+def maximum(lst):
+    max_value = lst[0]
+    for num in lst:
+        if num > max_value:
+            max_value = num
+    return max_value
 
-input("count_paren counts every valid {} sequence - returns 1 at each valid end. Press Enter")
-print("  count_paren(1) = 1")
-print("  count_paren(2) = 2")
-n = int(input("Enter a number of pairs (try 3 or 4): "))
-guess = input("What is count_paren(" + str(n) + ")? ")
-input("l>r closes l<n opens - adds 1 at every valid ending. Press Enter")
-print("  count_paren(" + str(n) + ") = " + str(count_paren(n)) + "  your guess: " + guess)
+# 2) Create a function to calculate the minimum of a list:
+def minimum(lst):
+    min_value = lst[0]
+    for num in lst:
+        if num < min_value:
+            min_value = num
+    return min_value
+
+# 3) Create a sample list and find its size using `len()`.
+sample_list = [1, 2, 3, 4, 5]
+size = len(sample_list)
+
+# 4) Call both functions and print the maximum and minimum.
+print("Maximum:", maximum(sample_list))
+print("Minimum:", minimum(sample_list))
