@@ -1,13 +1,17 @@
-def ways(n):
-    if n == 0:
-        return 1
-    if n < 0:
-        return 0
-    return ways(n-1) + ways(n-2)
-input("ways counts every distinct way to climb n stairs.  Press Enter ")
-print("  ways(3) = 3")
-print("  ways(4) = 5")
-n = int(input("Enter a number of stairs (try 5 or 6): "))
-guess = input("What is ways(" + str(n) + ")? ")
-input("ways(stairs) = ways(stairs-1) + ways(stairs-2)  both branches always combine.  Press Enter ")
-print("  ways(" + str(n) + ") = " + str(ways(n)) + "  your guess: " + guess)
+def reverse(n):
+    lst = list(range(1, n + 1))
+    left = 0
+    right = n - 1
+    while left < right:
+        lst[left], lst[right] = lst[right], lst[left]
+        left += 1
+        right -= 1
+    return lst
+
+input("reverse(n) builds [1..n] and flips it end-to-end using two pointers. Press Enter")
+print("  reverse(4) = [4, 3, 2, 1]")
+print("  reverse(5) = [5, 4, 3, 2, 1]") 
+n = int(input("Enter list size (try 6 or 7): "))
+guess = input("What is reverse(" + str(n) + ")? ")
+input("left and right swap and move inward until they meet in the middle. Press Enter")
+print("  reverse(" + str(n) + ") =", reverse(n), "  your guess:", guess)
